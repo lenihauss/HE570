@@ -4,7 +4,7 @@ import os
 import glob
 
 
-######load UVP particle data (downloaded as .tsv from EcoPart 2022/03/17
+######load UVP particle data (downloaded as .tsv from EcoPart 2022/05/09
 os.chdir('V://Daten/\Cruises/HE570/Particles')
 
 meta = pd.read_csv('Export_metadata_summary.tsv', "\t")
