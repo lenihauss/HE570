@@ -1,14 +1,16 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
-import glob
 
 
 ######load UVP particle data (downloaded as .tsv from EcoPart 2022/05/09
-os.chdir('V://Daten/\Cruises/HE570/Particles')
+script_path = os.path.abspath('__file__') # i.e. /path/to/dir/script.py
+script_dir = os.path.split(script_path)[0] #i.e. /path/to/dir/
+rel_path_meta = "UVP5_reduced/Export_metadata_summary.tsv" # relative path to data file
+rel_path_particles = "UVP5_reduced/PAR_Aggregated.tsv" # relative path to data file
 
-meta = pd.read_csv('Export_metadata_summary.tsv', "\t")
-part = pd.read_csv('PAR_Aggregated.tsv', "\t")
+abs_file_path_meta = os.path.join(script_dir, rel_path_meta)
+abs_file_path_particles = os.path.join(script_dir, rel_path_particles)
 
 #merge lat/lon info from metadata file to the dataframe
 part = pd.merge(part, meta[['profile','Latitude' ,'Longitude']], on=['profile'])

@@ -6,10 +6,17 @@ from scipy import stats
 
 
 ######load UVP particle data (downloaded as .tsv from EcoPart 2022/03/17
-os.chdir('V://Daten/Cruises/HE570/Particles/reduced')
+script_path = os.path.abspath('__file__') # i.e. /path/to/dir/script.py
+script_dir = os.path.split(script_path)[0] #i.e. /path/to/dir/
+rel_path_meta = "UVP5_reduced/Export_metadata_summary.tsv" # relative path to data file
+rel_path_particles = "UVP5_reduced/PAR_Aggregated.tsv" # relative path to data file
 
-meta = pd.read_csv('Export_metadata_summary.tsv', "\t")
-part = pd.read_csv('PAR_Aggregated.tsv', "\t")
+abs_file_path_meta = os.path.join(script_dir, rel_path_meta)
+abs_file_path_particles = os.path.join(script_dir, rel_path_particles)
+
+meta = pd.read_csv(abs_file_path_meta, "\t")
+part = pd.read_csv(abs_file_path_particles, "\t")
+
 
 #merge lat/lon info from metadata file to the dataframe
 part = pd.merge(part, meta[['profile','Latitude' ,'Longitude']], on=['profile'])
@@ -56,4 +63,4 @@ def lingregress(df):
 
 lingregress(df)
 
-quit()
+
