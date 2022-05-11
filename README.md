@@ -15,13 +15,15 @@ Done for UVP5 and UVP6, available on Ecopart and exported in this Repo.
 The UVP5HD (serial number 204, Picheral et al., 2010) was running without errors on all BOP profiles. The resulting particle and image data were processed and imported to Ecopart (https://ecotaxa.obs-vlfr.fr/part/) and Ecotaxa (https://ecotaxa.obs-vlfr.fr/prj/4105), respectively. 
 
 ![](./1_particle_profile_UVP5.png)
-UVP5 profiles in three size classes -- not smallest seems to include cutoff (too low)
+
+UVP5 profiles in three size classes in Masfjord (left) and Lurefjord (right) -- not smallest seems to include cutoff (too low)
 
 ### UVP6hf
 The UVP6hf (serial number sn00012, Picheral et al., 2021) was running without errors on all BOP profiles. The resulting particle and image data were processed and imported to Ecopart (https://ecotaxa.obs-vlfr.fr/part/) and Ecotaxa (https://ecotaxa.obs-vlfr.fr/prj/4515), respectively. 
 
 ![](./1b_particle_profile_UVP6hf.png)
-UVP6 profiles in three size classes -- note smallest seems more realistic
+
+UVP6 profiles in three size classes in Masfjord (left) and Lurefjord (right)-- note smallest seems more realistic
 
 ## Task 2
 ![](./3_detailed_particle_spectrum.png)
