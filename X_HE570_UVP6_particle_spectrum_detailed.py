@@ -18,6 +18,7 @@ meta = pd.read_csv(abs_file_path_meta, "\t")
 part = pd.read_csv(abs_file_path_particles, "\t")
 #merge lat/lon info from metadata file to the dataframe
 part = pd.merge(part, meta[['profile','Latitude' ,'Longitude']], on=['profile'])
+
 #rename some variables for easier column names
 part.rename(columns={
 'Depth [m]': 'depth', 
@@ -34,7 +35,6 @@ part.rename(columns={
 'LPM (1.02-1.29 mm) [# l-1]'	:1100
 }, inplace=True)
 ##too small for UVP
-
 #LPM (1-1.26 �m) [# l-1]	
 #LPM (1.26-1.59 �m) [# l-1]	
 #LPM (1.59-2 �m) [# l-1]	
@@ -67,8 +67,9 @@ part.rename(columns={
 
 print(part.columns)
 ##SELECT ONE PROFILE AND DEPTH BIN
-lpart = part[(part.profile == 'bop_001') & (part.depth == 7.5)]
+lpart = part[(part.profile == 'bop_he570_001') & (part.depth == 7.5)]
 lpart = lpart[[113,140,180,225,280,370,450,590,700,900,1100]]
+print(lpart)
 df= lpart.T.rename_axis('size',axis=0).reset_index()
 df.columns = ['size', 'abundance']
 df['log2abundance'] = np.log2(df.abundance)

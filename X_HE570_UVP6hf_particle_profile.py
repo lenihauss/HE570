@@ -6,12 +6,13 @@ import os
 ######load UVP particle data (downloaded as .tsv from EcoPart 2022/05/09
 script_path = os.path.abspath('__file__') # i.e. /path/to/dir/script.py
 script_dir = os.path.split(script_path)[0] #i.e. /path/to/dir/
-rel_path_meta = "UVP5_reduced/Export_metadata_summary.tsv" # relative path to data file
-rel_path_particles = "UVP5_reduced/PAR_Aggregated.tsv" # relative path to data file
+rel_path_meta = "UVP6hf_reduced/Export_metadata_summary.tsv" # relative path to data file
+rel_path_particles = "UVP6hf_reduced/PAR_Aggregated.tsv" # relative path to data file
 
 abs_file_path_meta = os.path.join(script_dir, rel_path_meta)
 abs_file_path_particles = os.path.join(script_dir, rel_path_particles)
-
+meta = pd.read_csv(abs_file_path_meta, "\t")
+part = pd.read_csv(abs_file_path_particles, "\t")
 #merge lat/lon info from metadata file to the dataframe
 part = pd.merge(part, meta[['profile','Latitude' ,'Longitude']], on=['profile'])
 #rename some variables for easier column names
@@ -42,7 +43,7 @@ fig = plt.figure(1, figsize=(10, 6))
 ax1 = fig.add_subplot(1,2,1)
 plt.title("A", x=0.05, y=0.92, color="black", fontweight='bold', fontsize = 14)
 ax1.set_ylim(480, 0)
-ax1.set_xlim(0, 270)
+ax1.set_xlim(0, 1000)
 ax1.fill_betweenx(mpart.depth, mpart.LPM_64_128-mpart.sd_LPM_64_128, mpart.LPM_64_128+mpart.sd_LPM_64_128, facecolor='grey', alpha=0.3)
 ax1.plot(mpart.LPM_64_128, mpart.depth, c='black', label = '64-128 µm')
 ax1.fill_betweenx(mpart.depth, mpart.LPM_128_256-mpart.sd_LPM_128_256, mpart.LPM_128_256+mpart.sd_LPM_128_256, facecolor='red', alpha=0.3)
@@ -60,7 +61,7 @@ ax1.set_ylabel('Depth (m)',fontsize=12)
 ax2 = fig.add_subplot(1,2,2)
 plt.title("B", x=0.05, y=0.92, color="black", fontweight='bold', fontsize = 14)
 ax2.set_ylim(480, 0)
-ax2.set_xlim(0, 270)
+ax2.set_xlim(0, 1000)
 ax2.fill_betweenx(lpart.depth, lpart.LPM_64_128-lpart.sd_LPM_64_128, lpart.LPM_64_128+lpart.sd_LPM_64_128, facecolor='grey', alpha=0.3)
 ax2.plot(lpart.LPM_64_128, lpart.depth, c='black', label = '64-128 µm')
 ax2.fill_betweenx(lpart.depth, lpart.LPM_128_256-lpart.sd_LPM_128_256, lpart.LPM_128_256+lpart.sd_LPM_128_256, facecolor='red', alpha=0.3)
@@ -75,6 +76,6 @@ plt.legend(loc="lower right", frameon = False)
 ###show and save
 
 plt.tight_layout()
-plt.savefig('HE570_centralstations_meanParticles.pdf')
+plt.savefig('HE570_centralstations_meanParticles_UVP6hf.pdf')
 plt.show()
 

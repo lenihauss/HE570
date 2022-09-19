@@ -1,0 +1,34 @@
+ISC image processing logfile
+Software Version: V1.06
+Software Date: 2020-11-04
+
+Cast Operator: Konrad
+Cast processed by: Konrad
+
+Parameters for gaussian blur
+KSize: 3
+Sigma: 0
+Further Parameters
+BW-Treshold: 15
+Min Particle size (pixel): 6
+Border size for crops (pixel): 10
+
+Camera related parameters
+Fov in Pixel (x,y): 1800 1186
+PixelSize (mm): 0.02
+Image width (cm): 3.6
+Image height (cm): 2.372
+Image depth (cm): 2.433333333333333
+Image Volume (mL): 20.778719999999996
+
+Bin sizes in pixel
+[0.00000000e+00 5.00000000e+00 7.00000000e+00 9.80000000e+00
+ 1.37200000e+01 1.92080000e+01 2.68912000e+01 3.76476800e+01
+ 5.27067520e+01 7.37894528e+01 1.03305234e+02 1.44627327e+02
+ 2.02478258e+02 2.83469562e+02 3.96857387e+02 5.55600341e+02
+ 7.77840478e+02 1.08897667e+03 1.52456734e+03 2.13439427e+03
+ 2.98815198e+03 9.99999990e+05]
+
+Processing time start: 2021.03.25-14:44:50
+Processing time end: 2021.03.25-15:00:25
+No of images processed: 2905

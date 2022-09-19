@@ -12,6 +12,8 @@ rel_path_particles = "UVP5_reduced/PAR_Aggregated.tsv" # relative path to data f
 abs_file_path_meta = os.path.join(script_dir, rel_path_meta)
 abs_file_path_particles = os.path.join(script_dir, rel_path_particles)
 
+meta = pd.read_csv(abs_file_path_meta, "\t")
+part = pd.read_csv(abs_file_path_particles, "\t")
 #merge lat/lon info from metadata file to the dataframe
 part = pd.merge(part, meta[['profile','Latitude' ,'Longitude']], on=['profile'])
 #rename some variables for easier column names
